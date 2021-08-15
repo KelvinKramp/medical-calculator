@@ -13,6 +13,7 @@ except Exception as e:
     print(e)
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
+server = app.server
 app.layout = html.Div(children=[
                             dbc.Row([
                                 dbc.Col(html.H1("OPS score calulator", style={'textAlign': 'center'}),
