@@ -192,10 +192,10 @@ app.layout = html.Div(children=[
         html.H2(""),
     ]),
 dbc.Row(children=[
-    dcc.Link("See the GitHub repo", href="https://github.com/KelvinKramp/medical-calculator",style={"display": "inline-block", 'textAlign': 'right', "width": "50%", }),
+    dcc.Link("See the GitHub repo", href="https://github.com/KelvinKramp/medical-calculator",target="_blank", style={"display": "inline-block", 'textAlign': 'right', "width": "50%", }),
 ]),
 dbc.Row(children=[
-    dcc.Link("Read the Medium post", href="https://k-h-kramp.medium.com/ops-calculator-in-dash-with-python-d236f478f764",style={"display": "inline-block", 'textAlign': 'right', "width": "50%", }),
+    dcc.Link("Read the Medium post", href="https://k-h-kramp.medium.com/ops-calculator-in-dash-with-python-d236f478f764", target="_blank", style={"display": "inline-block", 'textAlign': 'right', "width": "50%", }),
 ]),
                         ])
 
