@@ -121,6 +121,7 @@ celerybeat.pid
 
 # Environments
 .env
+.idea
 secrets.json
 .venv
 env/
