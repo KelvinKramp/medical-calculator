@@ -4,21 +4,15 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
-from datetime import datetime as dt
-import subprocess
 
-try:
-    subprocess.run("lsof -t -i tcp:8080 | xargs kill -9", shell=False) # kill the server
-except Exception as e:
-    print(e)
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
 server = app.server
 app.layout = html.Div(children=[
-                            # dbc.Row([
-                            #     dbc.Col(html.H1("OPS score calculator", style={'textAlign': 'center'}),
-                            #             width=12)
-                            # ]),
+                            dbc.Row([
+                                dbc.Col(html.H1("OPS score calculator", style={'textAlign': 'center'}),
+                                        width=12)
+                            ]),
                             dbc.Row([
                                 html.H3("Oriëntatie & geheugen",style={ "display": "inline-block", 'textAlign': 'center', "width": "100%",}),
                                 ]),
@@ -194,6 +188,15 @@ app.layout = html.Div(children=[
                                 html.H3("outcome", id='output-OPS-total',
                                     style={"display": "inline-block", 'textAlign': 'center', "width": "30%", },)
                                 ]),
+    dbc.Row(children=[
+        html.H2(""),
+    ]),
+dbc.Row(children=[
+    dcc.Link("See the GitHub repo", href="https://github.com/KelvinKramp/medical-calculator",style={"display": "inline-block", 'textAlign': 'right', "width": "50%", }),
+]),
+dbc.Row(children=[
+    dcc.Link("Read the Medium post", href="https://k-h-kramp.medium.com/ops-calculator-in-dash-with-python-d236f478f764",style={"display": "inline-block", 'textAlign': 'right', "width": "50%", }),
+]),
                         ])
 
 
@@ -230,4 +233,4 @@ def calc(Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9):
     return sum(l_total),sum(l_o),sum(l_p),sum(l_s)
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8080, debug=True, use_reloader=False)
+    app.run_server(host='0.0.0.0', port=8080, debug=True, use_reloader=True)
