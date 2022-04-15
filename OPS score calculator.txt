@@ -1,3 +1,0 @@
-add to heroku
-add herokapp to iframe in modal window
-add iframe to website
