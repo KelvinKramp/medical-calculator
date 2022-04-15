@@ -5,8 +5,18 @@ from dash.dependencies import Input, Output, State
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 
+explanation = """
+OPS bestaat uit drie gedragsdomeinen: 1) Oriëntatie & geheugen, 2) Praktische vaardigheden & aandacht
+en 3) Sociaal & persoonlijk functioneren. Elk van de drie gedragsdomeinen van de OPS heeft drie items die worden 
+gescoord op basis van de aanwezigheid van het item. Voor ieder item wordt een ja (1), twijfel (2) of afwezig (3) gescoord. Vervolgens 
+worden per gedragsdomein de items opgeteld en een totaal score berekend door de score
+per gedragsdomein te berekenen. 
+ 
+[Click here for the official documentation](https://www.cbr.nl/nl/service/nl/artikel/ops-methode-screening-cognitieve-stoornissen-ouderen.htm)
+"""
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
+app.title = 'OPS calculator'
 server = app.server
 app.layout = html.Div(children=[
                             dbc.Row([
@@ -188,15 +198,19 @@ app.layout = html.Div(children=[
                                 html.H3("outcome", id='output-OPS-total',
                                     style={"display": "inline-block", 'textAlign': 'center', "width": "30%", },)
                                 ]),
-    dbc.Row(children=[
-        html.H2(""),
-    ]),
-dbc.Row(children=[
-    dcc.Link("See the GitHub repo", href="https://github.com/KelvinKramp/medical-calculator",target="_blank", style={"display": "inline-block", 'textAlign': 'right', "width": "50%", }),
-]),
-dbc.Row(children=[
-    dcc.Link("Read the Medium post", href="https://k-h-kramp.medium.com/ops-calculator-in-dash-with-python-d236f478f764", target="_blank", style={"display": "inline-block", 'textAlign': 'right', "width": "50%", }),
-]),
+                            dbc.Row(children=[
+                                html.H2(""),
+                            ]),
+                            dcc.Markdown(explanation, style={"display": "inline-block", 'textAlign': 'center', "width": "100%", }),
+                            dbc.Row(children=[
+                                dcc.Link("Link to GitHub repo", href="https://github.com/KelvinKramp/medical-calculator",target="_blank", style={"display": "inline-block", 'textAlign': 'center', "width": "100%", }),
+                            ]),
+                            dbc.Row(children=[
+                                dcc.Link("Read the Medium post", href="https://k-h-kramp.medium.com/ops-calculator-in-dash-with-python-d236f478f764", target="_blank", style={"display": "inline-block", 'textAlign': 'center', "width": "100%", }),
+                            ]),
+                            dbc.Row(children=[
+                                dcc.Link("About me", href="https://www.kelvinkramp.com", target="_blank", style={"display": "inline-block", 'textAlign': 'center', "width": "100%", }),
+                            ]),
                         ])
 
 
